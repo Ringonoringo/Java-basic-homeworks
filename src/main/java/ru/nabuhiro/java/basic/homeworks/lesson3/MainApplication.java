@@ -1,13 +1,29 @@
 package ru.nabuhiro.java.basic.homeworks.lesson3;
 
+import java.util.Scanner;
+
 public class MainApplication {
         public static void main(String[] args) {
-            //Каждый метод последовательно вызовите из метода main()
-            greetings();
-            checkSign();
-            selectColor();
-            compareNumbers();
-            addOrSubtractAndPrint();
+            //При запуске приложения, запросите у пользователя число от 1 до 5,
+            // и после ввода выполнения метод, соответствующий указанному номеру со случайным значением аргументов;
+            Scanner scanner =new Scanner(System.in);
+            int vvod;
+            do {
+                System.out.println("Введите число от 1 до 5");
+                vvod = scanner.nextInt();
+            } while (vvod>5);
+            int number =vvod;
+            if (number == 1){
+                greetings();
+            }else if (number==2){
+                checkSign();
+            }else if (number==3){
+                selectColor();
+            }else if (number==4){
+                compareNumbers();
+            } else if (number==5){
+                addOrSubtractAndPrint();
+            } else System.out.println("Вы ввели чсило вне заданного диапазона");
         }
         //(1) Реализуйте метод greetings(), который при вызове должен отпечатать в столбец 4 слова: Hello, World, from, Java;
         public static void greetings() {
