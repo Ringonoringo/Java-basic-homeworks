@@ -6,8 +6,8 @@ public class MainApplication {
             greetings();
             checkSign();
             selectColor();
-            compareNumbers(6,5);
-            addOrSubtractAndPrint(1, 2, true);
+            compareNumbers();
+            addOrSubtractAndPrint();
         }
         //(1) Реализуйте метод greetings(), который при вызове должен отпечатать в столбец 4 слова: Hello, World, from, Java;
         public static void greetings() {
@@ -42,7 +42,9 @@ public class MainApplication {
 
     //(4) Реализуйте метод compareNumbers(), в теле которого объявите две int переменные a и b с любыми начальными значениями.
     // Если a больше или равно b, то необходимо вывести в консоль сообщение “a >= b”, в противном случае “a < b”;
-    public static void compareNumbers(int a, int b){
+    public static void compareNumbers(){
+        int a = (int) (Math.random()*10);
+        int b = (int) (Math.random()*10);
         if (a>=b){
             System.out.println("a>=b");
         } else {System.out.println("a<b");}
@@ -50,7 +52,10 @@ public class MainApplication {
 
     //(5) Создайте метод addOrSubtractAndPrint(int initValue, int delta, boolean increment). Если increment = true,
     // то метод должен к initValue прибавить delta и отпечатать в консоль результат, в противном случае - вычесть;
-    public static void addOrSubtractAndPrint(int initValue, int delta, boolean increment) {
+    public static void addOrSubtractAndPrint() {
+        boolean increment = Math.random() < 0.5;
+        int initValue = (int) (Math.random()*10);
+        int delta = (int) (Math.random()*10);
         if (increment){
             System.out.println(initValue+delta);
         }else {
