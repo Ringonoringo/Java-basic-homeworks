@@ -5,7 +5,7 @@ public class MainApplication {
             //Каждый метод последовательно вызовите из метода main()
             greetings();
             checkSign();
-            selectColor(11);
+            selectColor();
             compareNumbers(6,5);
             addOrSubtractAndPrint(1, 2, true);
         }
@@ -29,7 +29,8 @@ public class MainApplication {
 
     //(3) Реализуйте метод selectColor() в теле которого задайте int переменную data с любым начальным значением.
     // Если data меньше 10 включительно, то в консоль должно быть выведено сообщение “Красный”, если от 10 до 20 включительно, то “Желтый”, если больше 20 - “Зеленый”;
-    public static void selectColor(int data){
+    public static void selectColor(){
+        int data = (int)(Math.random() * ((100 - (-1)) + 1));
         if (data<=10){
             System.out.println("Красный");
         }else if (data>10 && data<=20){
