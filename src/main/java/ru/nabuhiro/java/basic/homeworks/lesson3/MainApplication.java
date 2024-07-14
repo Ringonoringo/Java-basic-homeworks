@@ -6,6 +6,7 @@ public class MainApplication {
             greetings();
             checkSign(1,-5,3);
             selectColor(11);
+            compareNumbers(6,5);
         }
         //(1) Реализуйте метод greetings(), который при вызове должен отпечатать в столбец 4 слова: Hello, World, from, Java;
         public static void greetings() {
@@ -32,5 +33,13 @@ public class MainApplication {
         } else {
             System.out.println("Зеленый");
         }
+    }
+
+    //(4) Реализуйте метод compareNumbers(), в теле которого объявите две int переменные a и b с любыми начальными значениями.
+    // Если a больше или равно b, то необходимо вывести в консоль сообщение “a >= b”, в противном случае “a < b”;
+    public static void compareNumbers(int a, int b){
+        if (a>=b){
+            System.out.println("a>=b");
+        } else {System.out.println("a<b");}
     }
 }
