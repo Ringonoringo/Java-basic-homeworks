@@ -23,7 +23,7 @@ public class MainApplication {
                 compareNumbers();
             } else if (number==5){
                 addOrSubtractAndPrint();
-            } else System.out.println("Вы ввели чсило вне заданного диапазона");
+            }
         }
         //(1) Реализуйте метод greetings(), который при вызове должен отпечатать в столбец 4 слова: Hello, World, from, Java;
         public static void greetings() {
