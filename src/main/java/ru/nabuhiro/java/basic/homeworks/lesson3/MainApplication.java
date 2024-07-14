@@ -7,6 +7,7 @@ public class MainApplication {
             checkSign(1,-5,3);
             selectColor(11);
             compareNumbers(6,5);
+            addOrSubtractAndPrint(1, 2, true);
         }
         //(1) Реализуйте метод greetings(), который при вызове должен отпечатать в столбец 4 слова: Hello, World, from, Java;
         public static void greetings() {
@@ -41,5 +42,15 @@ public class MainApplication {
         if (a>=b){
             System.out.println("a>=b");
         } else {System.out.println("a<b");}
+    }
+
+    //(5) Создайте метод addOrSubtractAndPrint(int initValue, int delta, boolean increment). Если increment = true,
+    // то метод должен к initValue прибавить delta и отпечатать в консоль результат, в противном случае - вычесть;
+    public static void addOrSubtractAndPrint(int initValue, int delta, boolean increment) {
+        if (increment){
+            System.out.println(initValue+delta);
+        }else {
+            System.out.println(initValue-delta);
+        }
     }
 }
