@@ -4,7 +4,7 @@ public class MainApplication {
         public static void main(String[] args) {
             //Каждый метод последовательно вызовите из метода main()
             greetings();
-            checkSign(1,-5,3);
+            checkSign();
             selectColor(11);
             compareNumbers(6,5);
             addOrSubtractAndPrint(1, 2, true);
@@ -15,7 +15,10 @@ public class MainApplication {
 
     //(2) Реализуйте метод checkSign(..), принимающий в качестве аргументов 3 int переменные a, b и c.
     // Метод должен посчитать их сумму, и если она больше или равна 0, то вывести в консоль сообщение “Сумма положительная”, в противном случае - “Сумма отрицательная”;
-    public static void checkSign(int a,int b,int c) {
+    public static void checkSign() {
+        int a = -10 + (int) (Math.random() * ((10 - (-10)) + 1));
+        int b = -10 + (int) (Math.random() * ((10 - (-10)) + 1));
+        int c = -10 + (int) (Math.random() * ((10 - (-10)) + 1));
         int sum = a+b+c;
         if (sum>=0) {
             System.out.println("Сумма положительная");
