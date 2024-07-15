@@ -16,13 +16,19 @@ public class MainApplication {
             if (number == 1){
                 greetings();
             }else if (number==2){
-                checkSign();
+                int a = -10 + (int) (Math.random() * ((10 - (-10)) + 1));
+                int b = -10 + (int) (Math.random() * ((10 - (-10)) + 1));
+                int c = -10 + (int) (Math.random() * ((10 - (-10)) + 1));
+                checkSign(a,b,c);
             }else if (number==3){
                 selectColor();
             }else if (number==4){
                 compareNumbers();
             } else if (number==5){
-                addOrSubtractAndPrint();
+                boolean increment = Math.random() < 0.5;
+                int initValue = (int) (Math.random()*10);
+                int delta = (int) (Math.random()*10);
+                addOrSubtractAndPrint(initValue, delta, increment);
             }
         }
         //(1) Реализуйте метод greetings(), который при вызове должен отпечатать в столбец 4 слова: Hello, World, from, Java;
@@ -31,10 +37,7 @@ public class MainApplication {
 
     //(2) Реализуйте метод checkSign(..), принимающий в качестве аргументов 3 int переменные a, b и c.
     // Метод должен посчитать их сумму, и если она больше или равна 0, то вывести в консоль сообщение “Сумма положительная”, в противном случае - “Сумма отрицательная”;
-    public static void checkSign() {
-        int a = -10 + (int) (Math.random() * ((10 - (-10)) + 1));
-        int b = -10 + (int) (Math.random() * ((10 - (-10)) + 1));
-        int c = -10 + (int) (Math.random() * ((10 - (-10)) + 1));
+    public static void checkSign(int a, int b, int c) {
         int sum = a+b+c;
         if (sum>=0) {
             System.out.println("Сумма положительная");
@@ -49,7 +52,7 @@ public class MainApplication {
         int data = (int)(Math.random() * ((100 - (-1)) + 1));
         if (data<=10){
             System.out.println("Красный");
-        }else if (data>10 && data<=20){
+        }else if (data<=20){
             System.out.println("Желтый");
         } else {
             System.out.println("Зеленый");
@@ -68,11 +71,8 @@ public class MainApplication {
 
     //(5) Создайте метод addOrSubtractAndPrint(int initValue, int delta, boolean increment). Если increment = true,
     // то метод должен к initValue прибавить delta и отпечатать в консоль результат, в противном случае - вычесть;
-    public static void addOrSubtractAndPrint() {
-        boolean increment = Math.random() < 0.5;
-        int initValue = (int) (Math.random()*10);
-        int delta = (int) (Math.random()*10);
-        if (increment){
+    public static void addOrSubtractAndPrint(int initValue,int delta, boolean increment) {
+                if (increment){
             System.out.println(initValue+delta);
         }else {
             System.out.println(initValue-delta);
