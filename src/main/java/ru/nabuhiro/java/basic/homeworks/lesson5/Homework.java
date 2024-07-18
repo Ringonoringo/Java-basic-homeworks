@@ -3,14 +3,27 @@ package ru.nabuhiro.java.basic.homeworks.lesson5;
 public class Homework {
     public static void main(String[] args) {
 worldRepeat(5,"нос");
+int [] arr = {1,2,3,6,6,5};
+sumArray(arr);
+
     }
     //Реализуйте метод, принимающий в качестве аргументов целое число и строку, и печатающий в консоль строку указанное количество раз
     public static void worldRepeat(int number, String world) {
-    int i = 0;
+    int i = 1;
     while (i<= number){
         System.out.println(world);
         i ++;
     }
+    }
+    //Реализуйте метод, принимающий в качестве аргумента целочисленный массив, суммирующий все элементы, значение которых больше 5, и печатающий полученную сумму в консоль.
+    public static void sumArray(int [] array) {
+       int sum = 0;
+       for (int i = 0; i< array.length; i++ ){
+           if(array[i]>5) {
+               sum += array[i];
+           }
+       }
+        System.out.println(sum);
     }
 }
 
