@@ -1,19 +1,26 @@
 package ru.nabuhiro.java.basic.homeworks.lesson5;
 
+import java.util.Arrays;
+
 public class Homework {
     public static void main(String[] args) {
-worldRepeat(5,"нос");
+        int number =5;
+worldRepeat(number,"нос");
 int [] arr = {1,2,3,6,6,5};
 sumArray(arr);
+filling(arr,number);
+increaseBy(arr,number);
 
     }
-    //Реализуйте метод, принимающий в качестве аргументов целое число и строку, и печатающий в консоль строку указанное количество раз
+    //Реализуйте метод, принимающий в качестве аргументов целое число и строку, и печатающий в консоль строку
+    // указанное количество раз.
     public static void worldRepeat(int number, String world) {
         for (int i = 0; i < number; i++) {
         System.out.println(world);
     }
     }
-    //Реализуйте метод, принимающий в качестве аргумента целочисленный массив, суммирующий все элементы, значение которых больше 5, и печатающий полученную сумму в консоль.
+    //Реализуйте метод, принимающий в качестве аргумента целочисленный массив, суммирующий все элементы,
+    // значение которых больше 5, и печатающий полученную сумму в консоль.
     public static void sumArray(int [] array) {
        int sum = 0;
        for (int i = 0; i< array.length; i++ ){
@@ -23,9 +30,21 @@ sumArray(arr);
        }
         System.out.println(sum);
     }
-    // -Реализуйте метод, принимающий в качестве аргументов целое число и ссылку на целочисленный массив, метод должен заполниться каждую ячейку массива указанным числом.
-    public static void filling(int [] arr) {
-
+    // -Реализуйте метод, принимающий в качестве аргументов целое число и ссылку на целочисленный массив,
+    // метод должен заполниться каждую ячейку массива указанным числом.
+    public static void filling(int [] array1, int number1) {
+        for (int i = 0; i < array1.length; i++) {
+            array1[i] = number1;
+        }
+        System.out.println(Arrays.toString(array1));
+    }
+    //-Реализуйте метод, принимающий в качестве аргументов целое число и ссылку на целочисленный массив,
+    // увеличивающий каждый элемент которого на указанное число.
+    public static void increaseBy(int[] array2, int number2) {
+        for (int i = 0; i < array2.length; i++) {
+            array2[i] += number2;
+        }
+        System.out.println(Arrays.toString(array2));
     }
 }
 
