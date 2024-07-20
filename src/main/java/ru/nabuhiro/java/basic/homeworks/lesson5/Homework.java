@@ -7,9 +7,11 @@ public class Homework {
         int number =5;
 worldRepeat(number,"нос");
 int [] arr = {1,2,3,6,6,5};
+int [] arr1 = {1,2,4,1,2,3};
 sumArray(arr);
 filling(arr,number);
 increaseBy(arr,number);
+halfSum(arr1);
 
     }
     //Реализуйте метод, принимающий в качестве аргументов целое число и строку, и печатающий в консоль строку
@@ -45,6 +47,23 @@ increaseBy(arr,number);
             array2[i] += number2;
         }
         System.out.println(Arrays.toString(array2));
+    }
+    //-Реализуйте метод, принимающий в качестве аргумента целочисленный массив,
+    // и печатающий в консоль сумма элементов какой из половин массива больше.
+    public static void halfSum(int [] array3) {
+        int sum1 = 0;
+        int sum2 = 0;
+        for (int i = 0; i < array3.length/2; i++) {
+            sum1 += array3[i];
+        }
+        for (int i = array3.length/2; i <array3.length ; i++) {
+            sum2 += array3[i];
+        }
+        if (sum1>sum2){
+            System.out.println(sum1);
+        } else {
+            System.out.println(sum2);
+        }
     }
 }
 
