@@ -5,20 +5,21 @@ import java.util.Arrays;
 public class Homework {
     public static void main(String[] args) {
         int number = 5;
-        worldRepeat(number, "нос");
         int[] arr = {1, 2, 3, 6, 6, 5};
         int[] arr1 = {1, 2, 4, 1, 2, 3};
         int[] arr2 = {1, 2};
         int[] arr3 = {1, 1, 1, 1, 1, 1, 1, 1};
-        int[] arr4 = {1, 2, 3, 4, 5};
+        int[] arr4 = {7, 3, 4};
+        int[] arr5 = {1, 2, 3, 4, 5};
+        worldRepeat(number, "нос");
         sumArray(arr);
         filling(arr, number);
         increaseBy(arr, number);
         halfSum(arr1);
         sumArrays(arr1, arr2, arr3);
-        findDot();
+        findDot(arr4);
         elementEncrease(arr3);
-        reverseArray(arr4);
+        reverseArray(arr5);
 
     }
 
@@ -107,30 +108,28 @@ public class Homework {
 
     //Реализуйте метод, проверяющий, что есть точка в массиве. в которой сумма "левой и правой" частей равны.
 // точка находится между элементами
-    public static void findDot() {
+    public static void findDot(int[] dot) {
         int sum_dot = 0;
         int sum_before_dot = 0;
         boolean is_success = false;
-        int[] dot1 = {5, -2, 1, 2};
-        for (int i = 0; i < dot1.length; i++) {
-            sum_dot += dot1[i];
+        for (int i = 0; i < dot.length; i++) {
+            sum_dot += dot[i];
         }
-        System.out.println(sum_dot);
         if (sum_dot % 2 == 0) {
-            for (int i = 0; i < dot1.length; i++) {
-                sum_before_dot += dot1[i];
+            for (int i = 0; i < dot.length; i++) {
+                sum_before_dot += dot[i];
                 if (sum_before_dot == sum_dot / 2) {
                     is_success = true;
                     System.out.println("Точка была найдена в массиве:");
                     System.out.print("[");
-                    for (int j = 0; j < dot1.length; j++) {
+                    for (int j = 0; j < dot.length; j++) {
                         if (j == i + 1) {
-                            System.out.print("|" + dot1[j] + ", ");
+                            System.out.print("|" + dot[j] + ", ");
                         } else {
-                            if (j == dot1.length - 1) {
-                                System.out.println(dot1[j] + "]");
+                            if (j == dot.length - 1) {
+                                System.out.println(dot[j] + "]");
                             } else {
-                                System.out.print(dot1[j] + ", ");
+                                System.out.print(dot[j] + ", ");
                             }
 
                         }
