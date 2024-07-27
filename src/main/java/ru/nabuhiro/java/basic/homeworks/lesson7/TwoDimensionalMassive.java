@@ -3,12 +3,14 @@ package ru.nabuhiro.java.basic.homeworks.lesson7;
 public class TwoDimensionalMassive {
     public static void main(String[] args) {
         int number = 3;
-        int[][] array = {{-2, 4, 2}, {3, 1, 2},{1, 1, 1}};
+        int[][] array = {{-2, 4, 2}, {3, 6, 2},{1, 1, 1}};
+        int[][] array1 = {{1,1,1}, {1,1,1}, {1,1,1}};
+        int[][] array2 = {{1,1,1}, {}, {1,1,1}};
         System.out.println(sumOfPositiveElements(array));
         symbolsSquare(number);
-        zeroDiagonal(array);
-        findMax(array);
-        twoStringSum(array);
+        zeroDiagonal(array1);
+        System.out.println(findMax(array));
+        System.out.println(twoStringSum(array2));
     }
 
     //Реализовать метод sumOfPositiveElements(..), принимающий в качестве аргумента целочисленный двумерный массив,
@@ -72,12 +74,12 @@ public class TwoDimensionalMassive {
                 if (i == 1) {
                     sum += array[i][j];
                 }
-
+                else {
+                    sum = -1;
+                }
             }
-
         }
         return sum;
     }
-
 }
 
