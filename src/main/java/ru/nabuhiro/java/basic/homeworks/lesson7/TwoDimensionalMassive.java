@@ -3,8 +3,7 @@ package ru.nabuhiro.java.basic.homeworks.lesson7;
 public class TwoDimensionalMassive {
     public static void main(String[] args) {
         int number = 3;
-        int[][] array = {{2, 4, 2}, {3, 1, 2},{1, 1, 1}};
-        // sumOfPositiveElements(array);
+        int[][] array = {{-2, 4, 2}, {3, 1, 2},{1, 1, 1}};
         System.out.println(sumOfPositiveElements(array));
         symbolsSquare(number);
         zeroDiagonal(array);
@@ -19,11 +18,9 @@ public class TwoDimensionalMassive {
         for (int i = 0; i <array.length; i++) {
             for (int j = 0; j < array[i].length; j++) {
                 if (array[i][j] > 0) {
-                    System.out.print(array[i][j] + " ");
                     sum += array[i][j];
                 }
             }
-            System.out.println();
         }
         return sum;
     }
