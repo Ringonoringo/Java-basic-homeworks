@@ -1,14 +1,20 @@
 package ru.nabuhiro.java.basic.homeworks.lesson7;
 
+import java.util.Arrays;
+
 public class TwoDimensionalMassive {
     public static void main(String[] args) {
         int sizeSquare = 3;
         int[][] array = {{-2, 4, 2}, {3, 6, 2}, {1, 1, 1}};
         int[][] array1 = {{1, 1, 1}, {1, 1, 1}, {1, 1, 1}};
-        int[][] array2 = {{1, 1, 1}, {}, {1, 1, 1}};
+        int[][] array2 = new int[1][2];
+        array2[0][1] = 1;
+        System.out.println(Arrays.deepToString(array2));
+        int[][] array3 = {{-5, -6, -4}, {-3, -2, -10}, {-7, -8, -9}};
         System.out.println(sumOfPositiveElements(array));
         symbolsSquare(sizeSquare);
         zeroDiagonal(array1);
+        System.out.println(findMax(array3));
         System.out.println(findMax(array));
         System.out.println(twoStringSum(array2));
     }
@@ -54,7 +60,7 @@ public class TwoDimensionalMassive {
 
     //Реализовать метод findMax(int[][] array) который должен найти и вернуть максимальный элемент массива;
     public static int findMax(int[][] array) {
-        int maxValue = 0;
+        int maxValue = array[0][0];
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[i].length; j++) {
                 if (array[i][j] >= maxValue) {
@@ -69,14 +75,14 @@ public class TwoDimensionalMassive {
 // то в качестве результата необходимо вернуть -1
     public static int twoStringSum(int[][] array) {
         int sumElements = 0;
-        for (int i = 0; i < array.length; i++) {
-            for (int j = 0; j < array[i].length; j++) {
-                if (i == 1) {
-                    sumElements += array[i][j];
-                } else {
-                    sumElements = -1;
-                }
+        if(array.length >= 2){
+            int i = 1;
+            for (int j = 0; j < array.length ; j++) {
+                sumElements += array[i][j];
             }
+        }
+        else {
+            sumElements = -1;
         }
         return sumElements;
     }
