@@ -4,9 +4,9 @@ import java.util.Scanner;
 
 public class Box {
     private String color;
-    private float width;
-    private float height;
-    private float length;
+    private double width;
+    private double height;
+    private double length;
     private boolean status;
     private String item;
     Scanner scanner = new Scanner(System.in);
@@ -15,15 +15,20 @@ public class Box {
     }
 
     public String getItem() {
+        if (item ==null){
+            System.out.println("В коробке ничего не лежит");
+        }
+        else{
+        System.out.println("В коробке:" + item);
+        }
         return item;
     }
 
-    public Box(String color, float width, float height, float length, boolean status) {
+    public Box(String color, double width, double height, double length) {
         this.color = color;
         this.height = height;
         this.width = width;
         this.length = length;
-        this.status = status;
     }
 
     public void changeColor() {
@@ -32,7 +37,9 @@ public class Box {
         System.out.println("Цвет коробки теперь: " + color);
     }
     public void info(){
-        System.out.println("Цвет коробки: " + color + "\nРазмеры коробки:" + "\nДлина: " + length + "Ширина: " + width + "Высота: " + height);
+        System.out.println("Цвет коробки: " + color + "\nРазмеры коробки:" + "\nДлина: " + length + " Ширина: " + width + " Высота: " + height);
+        System.out.println(getItem());
+        System.out.println(close());
     }
     public boolean open(){
         status = true;
@@ -45,25 +52,27 @@ public class Box {
         return false;
     }
     public void setItem(){
-        if (close()){
+        if (!status){
             System.out.println("Коробка закрыта. Перед тем как сложить предмет в коробку, откройте ее");
             return;
         }
         if (!(item == null)){
-            System.out.println("В коробке уже лежит предмет. Выложите предмет из коробки прежде чем в нее что-то складывать");
+            System.out.println("В коробке уже лежит предмет " + item +".\nВыложите предмет из коробки прежде чем в нее что-то складывать");
             return;
         }
         System.out.println("Введите предмет, который хотите положить в коробку");
         item = scanner.nextLine();
+        System.out.println("В коробке лежит " + item);
     }
     public void removeItem(){
-        if (close()){
+        if (!status){
             System.out.println("Коробка закрыта. Откройте ее перед удалением предмета");
             return;
         }
         if (!(item == null)){
+            System.out.println("Из коробки выложен предмет: " + item);
             item = null;
-            System.out.println("Коробка пуста");
+            return;
         }
         System.out.println("Коробка пуста");
     }
