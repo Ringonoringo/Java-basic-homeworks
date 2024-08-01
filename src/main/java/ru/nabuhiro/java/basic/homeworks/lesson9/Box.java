@@ -11,8 +11,17 @@ public class Box {
     private String item;
     Scanner scanner = new Scanner(System.in);
 
-    public void setColor() {
+    public Box(String color, double width, double height, double length) {
         this.color = color;
+        this.height = height;
+        this.width = width;
+        this.length = length;
+    }
+
+    public void setColor() {
+        System.out.println("Введите новый цвет для коробки");
+        color = scanner.nextLine();
+        System.out.println("Цвет коробки теперь: " + color);
     }
 
     public String getItem() {
@@ -22,19 +31,6 @@ public class Box {
             System.out.println("В коробке:" + item);
         }
         return item;
-    }
-
-    public Box(String color, double width, double height, double length) {
-        this.color = color;
-        this.height = height;
-        this.width = width;
-        this.length = length;
-    }
-
-    public void changeColor() {
-        System.out.println("Введите новый цвет для коробки");
-        color = scanner.nextLine();
-        System.out.println("Цвет коробки теперь: " + color);
     }
 
     public void info() {

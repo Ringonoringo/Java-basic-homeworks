@@ -22,7 +22,7 @@ public class Main {
         box.removeItem();
         box.open();
         box.removeItem();
-        box.changeColor();
+        box.setColor();
         box.setItem();
         box.setItem();
         box.removeItem();
