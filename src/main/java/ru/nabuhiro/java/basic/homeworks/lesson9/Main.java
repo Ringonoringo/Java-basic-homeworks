@@ -17,12 +17,17 @@ public class Main {
         for (int i = 0; i < users.length; i++) {
             users[i].sort();
         }
-        Box box = new Box("зеленый", 40.4,20.2, 30.3);
+        Box box = new Box("зеленый", 40.4, 20.2, 30.3);
         box.info();
-        box.setColor();
+        box.removeItem();
         box.open();
+        box.removeItem();
+        box.changeColor();
+        box.setItem();
         box.setItem();
         box.removeItem();
+        box.close();
+        box.setItem();
 
 
     }

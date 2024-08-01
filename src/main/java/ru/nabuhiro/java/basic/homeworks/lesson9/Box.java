@@ -10,16 +10,16 @@ public class Box {
     private boolean status;
     private String item;
     Scanner scanner = new Scanner(System.in);
+
     public void setColor() {
         this.color = color;
     }
 
     public String getItem() {
-        if (item ==null){
+        if (item == null) {
             System.out.println("В коробке ничего не лежит");
-        }
-        else{
-        System.out.println("В коробке:" + item);
+        } else {
+            System.out.println("В коробке:" + item);
         }
         return item;
     }
@@ -36,40 +36,45 @@ public class Box {
         color = scanner.nextLine();
         System.out.println("Цвет коробки теперь: " + color);
     }
-    public void info(){
+
+    public void info() {
         System.out.println("Цвет коробки: " + color + "\nРазмеры коробки:" + "\nДлина: " + length + " Ширина: " + width + " Высота: " + height);
-        System.out.println(getItem());
-        System.out.println(close());
+        getItem();
+        close();
     }
-    public boolean open(){
+
+    public boolean open() {
         status = true;
         System.out.println("Коробка открыта");
         return true;
     }
-    public boolean close(){
+
+    public boolean close() {
         status = false;
         System.out.println("Коробка закрыта");
         return false;
     }
-    public void setItem(){
-        if (!status){
+
+    public void setItem() {
+        if (!status) {
             System.out.println("Коробка закрыта. Перед тем как сложить предмет в коробку, откройте ее");
             return;
         }
-        if (!(item == null)){
-            System.out.println("В коробке уже лежит предмет " + item +".\nВыложите предмет из коробки прежде чем в нее что-то складывать");
+        if (!(item == null)) {
+            System.out.println("В коробке уже лежит предмет " + item + ".\nВыложите предмет из коробки прежде чем в нее что-то складывать");
             return;
         }
         System.out.println("Введите предмет, который хотите положить в коробку");
         item = scanner.nextLine();
         System.out.println("В коробке лежит " + item);
     }
-    public void removeItem(){
-        if (!status){
+
+    public void removeItem() {
+        if (!status) {
             System.out.println("Коробка закрыта. Откройте ее перед удалением предмета");
             return;
         }
-        if (!(item == null)){
+        if (!(item == null)) {
             System.out.println("Из коробки выложен предмет: " + item);
             item = null;
             return;
