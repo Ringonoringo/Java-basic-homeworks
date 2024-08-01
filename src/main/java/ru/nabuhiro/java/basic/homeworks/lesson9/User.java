@@ -7,25 +7,6 @@ public class User {
     private int yearOfBirth;
     private String email;
 
-    public String getSurname() {
-        return surname;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getPatronymic() {
-        return patronymic;
-    }
-
-    public int getYearOfBirth() {
-        return yearOfBirth;
-    }
-
-    public String getEmail() {
-        return email;
-    }
     public User(String surname, String name, String patronymic, int yearOfBirth, String email) {
         this.surname = surname;
         this.name = name;
@@ -39,7 +20,9 @@ public class User {
         System.out.println("e-mail: " +email);
     }
     public void sort(){
-        int year = 2016;
-
+        int thisYear = 2024;
+        if ((thisYear-yearOfBirth) >=40) {
+            fullInfo();
+        }
     }
 }

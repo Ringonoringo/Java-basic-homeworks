@@ -2,8 +2,21 @@ package ru.nabuhiro.java.basic.homeworks.lesson9;
 
 public class Main {
     public static void main(String[] args) {
-        User user1 = new User("R", "R","R", 1994,"klngrne");
-           user1.fullInfo();
+        User[] users = {
+                new User("Аринова", "Арина", "Ариновна", 2000, "ivanov@ya.ru"),
+                new User("Александрова", "Александра", "Александровна", 1990, "piter@ya.ru"),
+                new User("Серафимова", "Серафима", "Серафимовна", 1980, "sergey@ya.ru"),
+                new User("Верова", "Вера", "Веровна", 1970, "alexandr@ya.ru"),
+                new User("Андреев", "Андрей", "Андреевич", 1960, "andrey@ya.ru"),
+                new User("Денисов", "Денис", "Денисович", 1950, "denis@ya.ru"),
+                new User("Николаев", "Николай", "Николаевич", 1995, "nicolai@ya.ru"),
+                new User("Иннова", "Инна", "Инновна", 1955, "irina@ya.ru"),
+                new User("Kсеньева", "Kсения", "Kсеньевна", 1999, "ksenia@ya.ru"),
+                new User("Борисов", "Борис", "Борисович", 1988, "nul")
+        };
+        for (int i = 0; i < users.length; i++) {
+            users[i].sort();
+        }
 
     }
 }
