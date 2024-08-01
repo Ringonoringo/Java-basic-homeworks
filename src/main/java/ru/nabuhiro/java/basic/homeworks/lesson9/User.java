@@ -14,14 +14,16 @@ public class User {
         this.yearOfBirth = yearOfBirth;
         this.email = email;
     }
-    public void fullInfo(){
+
+    public void fullInfo() {
         System.out.println("ФИО: " + surname + " " + name + " " + patronymic);
         System.out.println("Год рождения: " + yearOfBirth);
-        System.out.println("e-mail: " +email);
+        System.out.println("e-mail: " + email);
     }
-    public void sort(){
+
+    public void sort() {
         int thisYear = 2024;
-        if ((thisYear-yearOfBirth) >=40) {
+        if ((thisYear - yearOfBirth) >= 40) {
             fullInfo();
         }
     }
