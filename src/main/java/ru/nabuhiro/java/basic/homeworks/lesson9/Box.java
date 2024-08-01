@@ -10,7 +10,7 @@ public class Box {
     private boolean status;
     private String item;
     Scanner scanner = new Scanner(System.in);
-    public void setColor(String color) {
+    public void setColor() {
         this.color = color;
     }
 

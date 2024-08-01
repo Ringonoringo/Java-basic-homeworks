@@ -19,6 +19,11 @@ public class Main {
         }
         Box box = new Box("зеленый", 40.4,20.2, 30.3);
         box.info();
+        box.setColor();
+        box.open();
+        box.setItem();
+        box.removeItem();
+
 
     }
 }
