@@ -42,7 +42,7 @@ public class Box {
         System.out.println("Коробка закрыта");
     }
 
-    public void setItem() {
+    public void putItem() {
         if (!isOpen) {
             System.out.println("Коробка закрыта. Перед тем как сложить предмет в коробку, откройте ее");
             return;
