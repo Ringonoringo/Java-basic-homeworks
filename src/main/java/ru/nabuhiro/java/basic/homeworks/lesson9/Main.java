@@ -1,10 +1,7 @@
 package ru.nabuhiro.java.basic.homeworks.lesson9;
 
 
-import java.util.Scanner;
-
 public class Main {
-    Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) {
         User[] users = {
                 new User("Аринова", "Арина", "Ариновна", 2000, "ivanov@ya.ru"),
