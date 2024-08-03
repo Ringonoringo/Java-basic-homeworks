@@ -1,6 +1,8 @@
 package ru.nabuhiro.java.basic.homeworks.lesson9;
 
+
 public class Main {
+
     public static void main(String[] args) {
         User[] users = {
                 new User("Аринова", "Арина", "Ариновна", 2000, "ivanov@ya.ru"),
@@ -22,12 +24,12 @@ public class Main {
         box.removeItem();
         box.open();
         box.removeItem();
-        box.setColor();
+        box.setColor("синий");
         box.setItem();
         box.setItem();
         box.removeItem();
         box.close();
-        box.setItem();
+        box.info();
 
 
     }

@@ -7,7 +7,7 @@ public class Box {
     private double width;
     private double height;
     private double length;
-    private boolean status;
+    private boolean isOpen;
     private String item;
     Scanner scanner = new Scanner(System.in);
 
@@ -18,45 +18,36 @@ public class Box {
         this.length = length;
     }
 
-    public void setColor() {
-        System.out.println("Введите новый цвет для коробки");
-        color = scanner.nextLine();
-        System.out.println("Цвет коробки теперь: " + color);
+    public void setColor(String color) {
+        this.color = color;
     }
 
-    public String getItem() {
+    public void info() {
+        System.out.println("Цвет коробки: " + color + "\nРазмеры коробки:" + "\nДлина: " + length + " Ширина: " + width + " Высота: " + height);
         if (item == null) {
             System.out.println("В коробке ничего не лежит");
         } else {
             System.out.println("В коробке:" + item);
         }
-        return item;
     }
 
-    public void info() {
-        System.out.println("Цвет коробки: " + color + "\nРазмеры коробки:" + "\nДлина: " + length + " Ширина: " + width + " Высота: " + height);
-        getItem();
-        close();
-    }
-
-    public boolean open() {
-        status = true;
+    public void open() {
+        isOpen = true;
         System.out.println("Коробка открыта");
-        return true;
+
     }
 
-    public boolean close() {
-        status = false;
+    public void close() {
+        isOpen = false;
         System.out.println("Коробка закрыта");
-        return false;
     }
 
     public void setItem() {
-        if (!status) {
+        if (!isOpen) {
             System.out.println("Коробка закрыта. Перед тем как сложить предмет в коробку, откройте ее");
             return;
         }
-        if (!(item == null)) {
+        if (item != null) {
             System.out.println("В коробке уже лежит предмет " + item + ".\nВыложите предмет из коробки прежде чем в нее что-то складывать");
             return;
         }
@@ -66,7 +57,7 @@ public class Box {
     }
 
     public void removeItem() {
-        if (!status) {
+        if (!isOpen) {
             System.out.println("Коробка закрыта. Откройте ее перед удалением предмета");
             return;
         }
