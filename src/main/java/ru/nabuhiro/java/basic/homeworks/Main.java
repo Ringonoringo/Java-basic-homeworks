@@ -1,6 +1,22 @@
 package ru.nabuhiro.java.basic.homeworks;
+import ru.nabuhiro.java.basic.homeworks.lesson11.Animals;
+import ru.nabuhiro.java.basic.homeworks.lesson11.Cat;
+import ru.nabuhiro.java.basic.homeworks.lesson11.Dog;
+import ru.nabuhiro.java.basic.homeworks.lesson11.Horse;
 
 public class Main {
+    public static void main(String[] args) {
+        Animals[] animals ={
+                new Cat("Компот", 2,100),
+                new Dog("Бобик", 4, 2,500),
+                new Horse("Феня",5, 1, 500)
+        };
+        for (int i = 0; i < animals.length; i++) {
+            animals[i].info();
+            animals[i].run(100);
+            animals[i].swim(100);
+        }
+    }
 }
 /*Создайте классы Cat, Dog и Horse с наследованием от класса Animal
 У каждого животного есть имя, скорость бега и плавания (м/с), и выносливость (измеряется в условных единицах)

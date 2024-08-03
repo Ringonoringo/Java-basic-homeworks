@@ -49,7 +49,7 @@ public abstract class Animals {
         } else {
             time = (float) distance / runningSpeed;
             endurance = endurance-(distance * consumption);
-            System.out.println("Время затраченное " + name + " на бег равно: " + time + "\nОставшаяся выносливость: " + endurance);
+            System.out.println("Время затраченное " + name + " на дистанцию " + distance + " метров равно: " + time + " секунд" + "\nОставшаяся выносливость: " + endurance);
         }
         /*
         if (time > endurance){
@@ -71,7 +71,7 @@ public abstract class Animals {
         if (endurance ==0){
             System.out.println(name + "состояние усталости");
         }
-        System.out.println("У " + name + " выносливость " +endurance);
+        System.out.println(name + " выносливость: " +endurance);
 
     }
     public abstract void swim(int distance);
