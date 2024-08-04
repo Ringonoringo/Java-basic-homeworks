@@ -1,7 +1,5 @@
 package ru.nabuhiro.java.basic.homeworks.lesson9;
 
-import java.util.Scanner;
-
 public class Box {
     private String color;
     private double width;
@@ -9,7 +7,7 @@ public class Box {
     private double length;
     private boolean isOpen;
     private String item;
-    Scanner scanner = new Scanner(System.in);
+    private String item1;
 
     public Box(String color, double width, double height, double length) {
         this.color = color;
@@ -46,16 +44,19 @@ public class Box {
         System.out.println("Коробка закрыта");
     }
 
-    public void putItem(String item) {
+    public String putItem(String item) {
         if (!isOpen) {
             System.out.println("Коробка закрыта. Перед тем как сложить предмет в коробку, откройте ее");
 
         }
-        if (item.equals(getItem())) {
-            System.out.println("В коробке уже лежит предмет " + item + ".\nВыложите предмет из коробки прежде чем в нее что-то складывать");
-        } else { System.out.println("В коробке лежит " + item);
+        if (item1 != null) {
+            System.out.println("В коробке уже лежит предмет " + item1 + ".\nВыложите предмет из коробки прежде чем в нее что-то складывать");
+        } else {
+            System.out.println("В коробке лежит " + item);
+            item1 = item;
         }
 
+        return item1;
 
     }
 
@@ -64,9 +65,11 @@ public class Box {
             System.out.println("Коробка закрыта. Откройте ее перед удалением предмета");
             return;
         }
-            System.out.println("Из коробки выложен предмет: " + item);
-            item = null;
-
+        if (!(item1 == null)) {
+            System.out.println("Из коробки выложен предмет: " + item1);
+            item1 = null;
+            return;
+        }
         System.out.println("Коробка пуста");
     }
 }

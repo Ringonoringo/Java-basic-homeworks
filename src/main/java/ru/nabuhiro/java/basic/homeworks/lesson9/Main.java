@@ -20,13 +20,12 @@ public class Main {
         }
         Box box = new Box("зеленый", 40.4, 20.2, 30.3);
         box.info();
-        box.removeItem();
         box.open();
-        box.removeItem();
         box.setColor("синий");
         box.putItem("мяч");
         box.putItem("носок");
         box.removeItem();
+        box.putItem("носок");
         box.close();
         box.info();
 
