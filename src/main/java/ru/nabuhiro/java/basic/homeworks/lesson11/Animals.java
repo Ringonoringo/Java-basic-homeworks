@@ -7,34 +7,6 @@ public abstract class Animals {
     int endurance;
     float time;
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getRunningSpeed() {
-        return runningSpeed;
-    }
-
-    public void setRunningSpeed(int runningSpeed) {
-        this.runningSpeed = runningSpeed;
-    }
-
-    public int getSwimmingSpeed() {
-        return swimmingSpeed;
-    }
-
-    public void setSwimmingSpeed(int swimmingSpeed) {
-        this.swimmingSpeed = swimmingSpeed;
-    }
-
-    public int getEndurance() {
-        return endurance;
-    }
-
     public void setEndurance(int endurance) {
         this.endurance = endurance;
     }
@@ -51,21 +23,6 @@ public abstract class Animals {
             endurance = endurance-(distance * consumption);
             System.out.println("Время затраченное " + name + " на дистанцию " + distance + " метров равно: " + time + " секунд" + "\nОставшаяся выносливость: " + endurance);
         }
-        /*
-        if (time > endurance){
-            System.out.println("У " + name + " состояние усталости после бега");
-            time = -1;
-        }
-        for (int i = 1; i <= distance; i= (int) (i*runningSpeed)) {
-            endurance--;
-            if (endurance == 0){
-                System.out.println("У " + name + " состояние усталости после бега");
-                time = -1;
-            }
-        }
-        time =(float) distance/runningSpeed;
-        */
-        //  distance \ runningSpeed = time
     }
     public void info(){
         if (endurance ==0){
