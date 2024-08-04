@@ -18,6 +18,10 @@ public class Box {
         this.length = length;
     }
 
+    public String getItem() {
+        return item;
+    }
+
     public void setColor(String color) {
         this.color = color;
     }
@@ -42,18 +46,17 @@ public class Box {
         System.out.println("Коробка закрыта");
     }
 
-    public void putItem() {
+    public void putItem(String item) {
         if (!isOpen) {
             System.out.println("Коробка закрыта. Перед тем как сложить предмет в коробку, откройте ее");
-            return;
+
         }
-        if (item != null) {
+        if (item.equals(getItem())) {
             System.out.println("В коробке уже лежит предмет " + item + ".\nВыложите предмет из коробки прежде чем в нее что-то складывать");
-            return;
+        } else { System.out.println("В коробке лежит " + item);
         }
-        System.out.println("Введите предмет, который хотите положить в коробку");
-        item = scanner.nextLine();
-        System.out.println("В коробке лежит " + item);
+
+
     }
 
     public void removeItem() {
@@ -61,11 +64,9 @@ public class Box {
             System.out.println("Коробка закрыта. Откройте ее перед удалением предмета");
             return;
         }
-        if (!(item == null)) {
             System.out.println("Из коробки выложен предмет: " + item);
             item = null;
-            return;
-        }
+
         System.out.println("Коробка пуста");
     }
 }

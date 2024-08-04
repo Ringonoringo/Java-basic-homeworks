@@ -24,8 +24,8 @@ public class Main {
         box.open();
         box.removeItem();
         box.setColor("синий");
-        box.putItem();
-        box.putItem();
+        box.putItem("мяч");
+        box.putItem("носок");
         box.removeItem();
         box.close();
         box.info();
