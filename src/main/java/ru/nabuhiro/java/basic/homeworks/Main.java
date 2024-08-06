@@ -1,12 +1,12 @@
 package ru.nabuhiro.java.basic.homeworks;
-import ru.nabuhiro.java.basic.homeworks.lesson11.Animals;
+import ru.nabuhiro.java.basic.homeworks.lesson11.Animal;
 import ru.nabuhiro.java.basic.homeworks.lesson11.Cat;
 import ru.nabuhiro.java.basic.homeworks.lesson11.Dog;
 import ru.nabuhiro.java.basic.homeworks.lesson11.Horse;
 
 public class Main {
     public static void main(String[] args) {
-        Animals[] animals ={
+        Animal[] animals ={
                 new Cat("Компот", 2,100),
                 new Dog("Бобик", 4, 2,500),
                 new Horse("Феня",5, 1, 500)
@@ -25,6 +25,9 @@ public class Main {
 Собаки на 1 метр плавания - 2 ед.
 Лошади на 1 метр плавания тратят 4 единицы
 Кот плавать не умеет.
-Реализуйте методы run(int distance) и swim(int distance), которые должны возвращать время, затраченное на указанное действие, и “понижать выносливость” животного. Если выносливости не хватает, то возвращаем время -1 и указываем что у животного появилось состояние усталости. При выполнении действий пишем сообщения в консоль.
+Реализуйте методы run(int distance) и swim(int distance), которые должны возвращать время,
+затраченное на указанное действие, и “понижать выносливость” животного.
+Если выносливости не хватает, то возвращаем время -1 и указываем что у животного появилось состояние усталости.
+При выполнении действий пишем сообщения в консоль.
 Добавляем метод info(), который выводит в консоль состояние животного.
  */
