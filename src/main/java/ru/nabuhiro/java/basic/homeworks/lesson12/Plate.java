@@ -3,7 +3,6 @@ package ru.nabuhiro.java.basic.homeworks.lesson12;
 public class Plate { // класс тарелка
     private int amountOfFood; // максимальное количество еды всегда будет равно объему тарелки если брать условные единицы
     private int volumePlate;
-    private int food;
 
     public Plate(int volumePlate) {
         this.volumePlate = volumePlate;
@@ -11,7 +10,6 @@ public class Plate { // класс тарелка
     }
 
     public void AddFood(int food) {
-        this.food = food;
         if (volumePlate >= food + amountOfFood) {
             amountOfFood += food;
             System.out.println("В тарелку добавлено еды " + food);
