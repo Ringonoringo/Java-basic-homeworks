@@ -1,8 +1,46 @@
 package ru.nabuhiro.java.basic.homeworks.lesson13;
 
-public class Car {
+public class Car implements Vehicle {
     private int fuel;
+    private String name;
+    private int consumptionPlain;
+
     // не может болото и лес
+    public Car(int fuel) {
+        this.fuel = fuel;
+        this.name = "Машина";
+        this.consumptionPlain = 3;
+    }
+
+    @Override
+    public boolean takeATripForest(int distance) {// 4 литра на километр
+        System.out.println(name + " не может пересечь лес");
+        return false;
+    }
+
+    @Override
+    public boolean takeATripPlain(int distance) {// 3 литра на километр
+        if (distance * consumptionPlain > fuel) {
+            System.out.println("У " + name + " закончиллось топливо");
+            return false;
+        }
+        System.out.println(name + " равнина преодолена");
+        fuel -= distance * consumptionPlain;
+        return true;
+
+    }
+
+    @Override
+    public boolean takeATripBog(int distance) {// не может пересечь болото
+        System.out.println(name + " не может пересечь болото");
+        return false;
+
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
 
 }
 /*Создайте класс Человек с полями name (имя) и currentTransport (текущий транспорт)

@@ -1,8 +1,54 @@
 package ru.nabuhiro.java.basic.homeworks.lesson13;
 
-public class Horse {
+public class Horse implements Vehicle {
     private int power;
+    private String name;
+    private int consumptionForest;
+    private int consumptionPlain;
+    private int consumptionBog;
+
     // не может болото
+    public Horse(int power) {
+        this.power = power;
+        this.name = "Лошадь";
+        this.consumptionForest = 2;
+        this.consumptionPlain = 3;
+    }
+
+    @Override
+    public boolean takeATripForest(int distance) {// 4 литра на километр
+        if (distance * consumptionForest > power) {
+            System.out.println("У " + name + " закончились силы");
+            return false;
+        }
+        System.out.println( name + " лес преодолен");
+        power -= distance * consumptionForest;
+        return true;
+    }
+
+    @Override
+    public boolean takeATripPlain(int distance) {// 3 литра на километр
+        if (distance * consumptionPlain > power) {
+            System.out.println("У " + name + " закончились силы");
+            return false;
+        }
+        System.out.println(name +  " равнина преодолена");
+        power -= distance * consumptionPlain;
+        return true;
+
+    }
+
+    @Override
+    public boolean takeATripBog(int distance) {// не может пересечь болото
+        System.out.println(name + " не может пересечь болото");
+        return false;
+
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
 }
 /*Создайте класс Человек с полями name (имя) и currentTransport (текущий транспорт)
 Реализуйте в вашем приложении классы Машина, Лошадь, Велосипед, Вездеход

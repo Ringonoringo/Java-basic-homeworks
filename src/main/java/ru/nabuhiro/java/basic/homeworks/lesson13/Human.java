@@ -1,9 +1,61 @@
 package ru.nabuhiro.java.basic.homeworks.lesson13;
 
-public class Human {
+public class Human implements Vehicle{
     private String name;
     private String currentTransport;
-    private int Power;
+    private int power;
+    private int consumptionForest;
+    private int consumptionPlain;
+    private int consumptionBog;
+
+    // не может болото
+    public Human(int power, String name) {
+        this.name = name;
+        this.power = power;
+        this.consumptionForest = 3;
+        this.consumptionPlain = 5;
+        this.consumptionBog =1;
+    }
+
+    @Override
+    public boolean takeATripForest(int distance) {// 4 литра на километр
+        if (distance * consumptionForest > power) {
+            System.out.println("У " + name + " закончились силы");
+            return false;
+        }
+        System.out.println( name + " лес преодолен");
+        power -= distance * consumptionForest;
+        return true;
+    }
+
+    @Override
+    public boolean takeATripPlain(int distance) {// 3 литра на километр
+        if (distance * consumptionPlain > power) {
+            System.out.println("У " + name + " закончились силы");
+            return false;
+        }
+        System.out.println(name +  " равнина преодолена");
+        power -= distance * consumptionPlain;
+        return true;
+
+    }
+
+    @Override
+    public boolean takeATripBog(int distance) {// не может пересечь болото
+        if (distance * consumptionBog > power) {
+            System.out.println("У " + name + " закончились силы");
+            return false;
+        }
+        System.out.println(name +  " болото преодолено");
+        power -= distance * consumptionBog;
+        return true;
+
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
 
     // человек. транспорт выбираю из классов.
     // вызов по контракту, когда описывали дни недели

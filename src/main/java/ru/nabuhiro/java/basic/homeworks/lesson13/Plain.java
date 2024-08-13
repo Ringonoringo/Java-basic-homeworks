@@ -1,6 +1,14 @@
 package ru.nabuhiro.java.basic.homeworks.lesson13;
 
-public class Plain {
+public class Plain implements Locality {
+    private  int distance;
+    public Plain (int distance) {
+        this.distance = distance;
+    }
+    @Override
+    public boolean takeATrip(Vehicle vehicle){
+        return vehicle.takeATripPlain(distance);
+    }
 }
 /*Создайте класс Человек с полями name (имя) и currentTransport (текущий транспорт)
 Реализуйте в вашем приложении классы Машина, Лошадь, Велосипед, Вездеход
