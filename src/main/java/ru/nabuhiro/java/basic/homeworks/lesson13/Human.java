@@ -3,10 +3,11 @@ package ru.nabuhiro.java.basic.homeworks.lesson13;
 public class Human implements Vehicle{
     private String name;
     private String currentTransport;
-    private int power;
+    public static int power;
     private int consumptionForest;
     private int consumptionPlain;
     private int consumptionBog;
+    public TakeTransport takeTransport;
 
     // не может болото
     public Human(int power, String name) {
@@ -14,10 +15,10 @@ public class Human implements Vehicle{
         this.power = power;
         this.consumptionForest = 3;
         this.consumptionPlain = 5;
-        this.consumptionBog =1;
+        this.consumptionBog = 1;
     }
 
-    @Override
+
     public boolean takeATripForest(int distance) {// 4 литра на километр
         if (distance * consumptionForest > power) {
             System.out.println("У " + name + " закончились силы");
@@ -28,7 +29,7 @@ public class Human implements Vehicle{
         return true;
     }
 
-    @Override
+
     public boolean takeATripPlain(int distance) {// 3 литра на километр
         if (distance * consumptionPlain > power) {
             System.out.println("У " + name + " закончились силы");
@@ -40,7 +41,6 @@ public class Human implements Vehicle{
 
     }
 
-    @Override
     public boolean takeATripBog(int distance) {// не может пересечь болото
         if (distance * consumptionBog > power) {
             System.out.println("У " + name + " закончились силы");
@@ -55,6 +55,9 @@ public class Human implements Vehicle{
     @Override
     public String getName() {
         return name;
+    }
+    public void takeAModeOfTransport(TakeTransport takeTransport){
+        System.out.println(name + " сел на вид транспорта " + currentTransport );
     }
 
     // человек. транспорт выбираю из классов.

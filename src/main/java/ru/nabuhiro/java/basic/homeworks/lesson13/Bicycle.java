@@ -5,6 +5,7 @@ public class Bicycle implements Vehicle{
     private int power;
     private int consumptionForest;
     private int consumptionPlain;
+    public TakeTransport takeTransport;
 
     // не может болото
     public Bicycle(int power) {
@@ -16,23 +17,23 @@ public class Bicycle implements Vehicle{
 
     @Override
     public boolean takeATripForest(int distance) {// 4 литра на километр
-        if (distance * consumptionForest > power) {
+        if (distance * consumptionForest > Human.power) {
             System.out.println("У " + name + " закончились силы");
             return false;
         }
         System.out.println( name + " лес преодолен");
-        power -= distance * consumptionForest;
+        Human.power -= distance * consumptionForest;
         return true;
     }
 
     @Override
     public boolean takeATripPlain(int distance) {// 3 литра на километр
-        if (distance * consumptionPlain > power) {
+        if (distance * consumptionPlain > Human.power) {
             System.out.println("У " + name + " закончились силы");
             return false;
         }
         System.out.println(name +  " равнина преодолена");
-        power -= distance * consumptionPlain;
+        Human.power -= distance * consumptionPlain;
         return true;
 
     }
