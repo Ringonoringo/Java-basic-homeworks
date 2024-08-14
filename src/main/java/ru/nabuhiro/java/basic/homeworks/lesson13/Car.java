@@ -1,9 +1,36 @@
 package ru.nabuhiro.java.basic.homeworks.lesson13;
 
-public class Car implements Vehicle {
-    private int fuel;
+public class Car implements Vehicle, Transport{
+    public static int fuel;
     private String name;
     private int consumptionPlain;
+
+    public int getFuel() {
+        return fuel;
+    }
+
+    @Override
+    public int takeAModeOfTransport(Transport transport) {
+        System.out.println("Человек сел в машину");
+        return fuel;
+    }
+
+    @Override
+    public int toSetDown(Transport transport) {
+        System.out.println("Человек вышел из машины");
+        return fuel;
+    }
+
+    @Override
+    public String getType(Transport transport) {
+        return "машина";
+    }
+
+    @Override
+    public boolean takeATrip(Transport transport, Terrain terrain) {
+
+        return false;
+    }
 
     // не может болото и лес
     public Car(int fuel) {

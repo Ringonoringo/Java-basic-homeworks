@@ -6,8 +6,8 @@ public class Plain implements Locality {
         this.distance = distance;
     }
     @Override
-    public boolean takeATrip(Vehicle vehicle){
-        return vehicle.takeATripPlain(distance);
+    public boolean takeATrip(Locality locality){
+        return false;
     }
 }
 /*Создайте класс Человек с полями name (имя) и currentTransport (текущий транспорт)

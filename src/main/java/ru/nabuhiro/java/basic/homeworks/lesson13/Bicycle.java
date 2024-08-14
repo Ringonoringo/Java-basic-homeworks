@@ -5,7 +5,7 @@ public class Bicycle implements Vehicle{
     private int power;
     private int consumptionForest;
     private int consumptionPlain;
-    public TakeTransport takeTransport;
+
 
     // не может болото
     public Bicycle(int power) {

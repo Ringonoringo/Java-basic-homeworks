@@ -1,6 +1,6 @@
 package ru.nabuhiro.java.basic.homeworks.lesson13;
 
-public class LandRover implements Vehicle {
+public class LandRover implements Vehicle, Transport{
     private int fuel;
     private String name;
     private int consumptionForest;
@@ -13,6 +13,18 @@ public class LandRover implements Vehicle {
         this.consumptionForest = 4;
         this.consumptionPlain = 3;
         this.consumptionBog = 5;
+    }
+
+    @Override
+    public int takeAModeOfTransport(Transport transport) {
+        System.out.println("Человек сел в вездеход");
+        return fuel;
+    }
+
+    @Override
+    public int toSetDown(Transport transport) {
+        System.out.println("Человек вышел из вездехода");
+        return fuel;
     }
 
     @Override

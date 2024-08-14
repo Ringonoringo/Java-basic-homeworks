@@ -1,21 +1,36 @@
 package ru.nabuhiro.java.basic.homeworks.lesson13;
 
-public class Human implements Vehicle{
+public class Human  implements Transport{
     private String name;
     private String currentTransport;
     public static int power;
     private int consumptionForest;
     private int consumptionPlain;
     private int consumptionBog;
-    public TakeTransport takeTransport;
 
-    // не может болото
+
     public Human(int power, String name) {
         this.name = name;
         this.power = power;
         this.consumptionForest = 3;
         this.consumptionPlain = 5;
         this.consumptionBog = 1;
+    }
+
+    @Override
+    public int takeAModeOfTransport(Transport transport) {
+       return transport.takeAModeOfTransport(transport);
+
+    }
+
+    @Override
+    public int toSetDown(Transport transport) {
+        return transport.toSetDown(transport);
+    }
+
+    @Override
+    public String getType(Transport transport) {
+        return transport.getType(transport);
     }
 
 
@@ -52,13 +67,13 @@ public class Human implements Vehicle{
 
     }
 
-    @Override
+
     public String getName() {
         return name;
-    }
+    }/*
     public void takeAModeOfTransport(TakeTransport takeTransport){
-        System.out.println(name + " сел на вид транспорта " + currentTransport );
-    }
+       takeTransport.takeAModeOfTransport(takeTransport);
+    }*/
 
     // человек. транспорт выбираю из классов.
     // вызов по контракту, когда описывали дни недели

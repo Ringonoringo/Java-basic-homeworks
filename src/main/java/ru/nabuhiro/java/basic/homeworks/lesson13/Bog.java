@@ -7,9 +7,10 @@ public class Bog implements Locality {
         this.distance = distance;
     }
     @Override
-    public boolean takeATrip(Vehicle vehicle){
-        return vehicle.takeATripBog(distance);
+    public boolean takeATrip(Locality locality){
+        return false;
     }
+
 }
 /*Создайте класс Человек с полями name (имя) и currentTransport (текущий транспорт)
 Реализуйте в вашем приложении классы Машина, Лошадь, Велосипед, Вездеход
