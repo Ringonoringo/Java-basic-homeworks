@@ -4,6 +4,7 @@ public interface Transport {
     int takeAModeOfTransport(Transport transport);
     int toSetDown(Transport transport);
     String getType(Transport transport);
-    boolean takeATrip(Transport transport, Terrain terrain);
+    boolean takeATrip(int distance, Terrain terrain);
+    int power(Transport transport);
 
 }

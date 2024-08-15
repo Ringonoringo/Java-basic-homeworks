@@ -1,6 +1,6 @@
 package ru.nabuhiro.java.basic.homeworks.lesson13;
 
-public class Car implements Vehicle, Transport{
+public class Car implements Transport{
     public static int fuel;
     private String name;
     private int consumptionPlain;
@@ -8,10 +8,15 @@ public class Car implements Vehicle, Transport{
     public int getFuel() {
         return fuel;
     }
+    public Car(int fuel) {
+        this.fuel = fuel;
+        this.name = "Машина";
+        this.consumptionPlain = 3;
+    }
 
     @Override
     public int takeAModeOfTransport(Transport transport) {
-        System.out.println("Человек сел в машину");
+        System.out.println(Human.name + " сел в машину");
         return fuel;
     }
 
@@ -23,50 +28,36 @@ public class Car implements Vehicle, Transport{
 
     @Override
     public String getType(Transport transport) {
-        return "машина";
+        return "Машина";
     }
 
     @Override
-    public boolean takeATrip(Transport transport, Terrain terrain) {
+    public int power(Transport transport) {
 
-        return false;
-    }
-
-    // не может болото и лес
-    public Car(int fuel) {
-        this.fuel = fuel;
-        this.name = "Машина";
-        this.consumptionPlain = 3;
+        return fuel;
     }
 
     @Override
-    public boolean takeATripForest(int distance) {// 4 литра на километр
-        System.out.println(name + " не может пересечь лес");
-        return false;
-    }
-
-    @Override
-    public boolean takeATripPlain(int distance) {// 3 литра на километр
-        if (distance * consumptionPlain > fuel) {
-            System.out.println("У " + name + " закончиллось топливо");
-            return false;
+    public boolean takeATrip(int distance, Terrain terrain) {
+        switch (terrain) {
+            case BOG:
+                System.out.println(name + " не может проехать по болоту");
+                return false;
+            case DENSEFOREST:
+                System.out.println(name +" не может проехать по густому лесу");
+                return false;
+            case PLAIN:
+                if (distance> fuel){
+                    System.out.println("У машины не хватит топлива для такой дистанции");
+                    return  false;
+                }
+                fuel -= distance;
+                System.out.println("Машина проехала по равнине. Остаток топлива: " + fuel);
+                return true;
+            default:
+                throw new IllegalArgumentException("Unsupported operation: " + terrain);
         }
-        System.out.println(name + " равнина преодолена");
-        fuel -= distance * consumptionPlain;
-        return true;
 
-    }
-
-    @Override
-    public boolean takeATripBog(int distance) {// не может пересечь болото
-        System.out.println(name + " не может пересечь болото");
-        return false;
-
-    }
-
-    @Override
-    public String getName() {
-        return name;
     }
 
 }

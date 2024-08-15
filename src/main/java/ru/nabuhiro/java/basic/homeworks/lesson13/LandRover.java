@@ -1,6 +1,6 @@
 package ru.nabuhiro.java.basic.homeworks.lesson13;
 
-public class LandRover implements Vehicle, Transport{
+public class LandRover implements Transport{
     private int fuel;
     private String name;
     private int consumptionForest;
@@ -28,43 +28,36 @@ public class LandRover implements Vehicle, Transport{
     }
 
     @Override
-    public boolean takeATripForest(int distance) {// 4 литра на километр
-        if (distance * consumptionForest > fuel) {
-            System.out.println("У " + name + " закончиллось топливо");
-            return false;
-        }
-        System.out.println(name + " лес преодолен");
-        fuel -= distance * consumptionForest;
-        return true;
+    public String getType(Transport transport) {
+        return "Вездеход";
     }
 
     @Override
-    public boolean takeATripPlain(int distance) {// 3 литра на километр
-        if (distance * consumptionPlain > fuel) {
-            System.out.println("У " + name + " закончиллось топливо");
-            return false;
+    public boolean takeATrip(int distance, Terrain terrain) {
+        switch (terrain) {
+            case BOG:
+                System.out.println("Машина не может проехать по болоту");
+                return false;
+            case DENSEFOREST:
+                System.out.println("Машина не может проехать по густому лесу");
+                return false;
+            case PLAIN:
+                if (distance> fuel){
+                    System.out.println("У машины не хватит топлива для такой дистанции");
+                    return  false;
+                }
+                fuel -= distance;
+                System.out.println("Машина проехала по равнине. Остаток топлива: " + fuel);
+                return true;
+            default:
+                throw new IllegalArgumentException("Unsupported operation: " + terrain);
         }
-        System.out.println(name + " равнина преодолена");
-        fuel -= distance * consumptionPlain;
-        return true;
-
-    }
-
-    @Override
-    public boolean takeATripBog(int distance) {// 5 литров на километр
-        if (distance * consumptionBog > fuel) {
-            System.out.println("У " + name + " закончиллось топливо");
-            return false;
-        }
-        System.out.println(name + " болото преодолено");
-        fuel -= distance * consumptionBog;
-        return true;
 
     }
 
     @Override
-    public String getName() {
-        return name;
+    public int power(Transport transport) {
+        return fuel;
     }
 }
 /*Создайте класс Человек с полями name (имя) и currentTransport (текущий транспорт)

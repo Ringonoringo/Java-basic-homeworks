@@ -1,8 +1,8 @@
 package ru.nabuhiro.java.basic.homeworks.lesson13;
 
-public class Human  implements Transport{
-    private String name;
-    private String currentTransport;
+public class Human  implements Transport {
+     static String name;
+    private Transport currentTransport;
     public static int power;
     private int consumptionForest;
     private int consumptionPlain;
@@ -12,6 +12,7 @@ public class Human  implements Transport{
     public Human(int power, String name) {
         this.name = name;
         this.power = power;
+        currentTransport = null;
         this.consumptionForest = 3;
         this.consumptionPlain = 5;
         this.consumptionBog = 1;
@@ -19,6 +20,8 @@ public class Human  implements Transport{
 
     @Override
     public int takeAModeOfTransport(Transport transport) {
+        power = transport.power(transport);
+        currentTransport = transport;
        return transport.takeAModeOfTransport(transport);
 
     }
@@ -33,49 +36,35 @@ public class Human  implements Transport{
         return transport.getType(transport);
     }
 
+    @Override
+    public int power(Transport transport) {
+        return power;
+    }
 
-    public boolean takeATripForest(int distance) {// 4 литра на километр
-        if (distance * consumptionForest > power) {
-            System.out.println("У " + name + " закончились силы");
-            return false;
+    @Override
+    public boolean takeATrip(int distance, Terrain terrain) {
+        switch (terrain) {
+            case BOG:
+               return currentTransport.takeATrip(distance,terrain);
+
+            case DENSEFOREST:
+                System.out.println("Машина не может проехать по густому лесу");
+                return false;
+            case PLAIN:
+                if (distance> power){
+                    System.out.println("У машины не хватит топлива для такой дистанции");
+                    return  false;
+                }
+                power -= distance;
+                System.out.println("Машина проехала по равнине. Остаток топлива: " + power);
+                return true;
+            default:
+                throw new IllegalArgumentException("Unsupported operation: " + terrain);
         }
-        System.out.println( name + " лес преодолен");
-        power -= distance * consumptionForest;
-        return true;
     }
 
 
-    public boolean takeATripPlain(int distance) {// 3 литра на километр
-        if (distance * consumptionPlain > power) {
-            System.out.println("У " + name + " закончились силы");
-            return false;
-        }
-        System.out.println(name +  " равнина преодолена");
-        power -= distance * consumptionPlain;
-        return true;
-
-    }
-
-    public boolean takeATripBog(int distance) {// не может пересечь болото
-        if (distance * consumptionBog > power) {
-            System.out.println("У " + name + " закончились силы");
-            return false;
-        }
-        System.out.println(name +  " болото преодолено");
-        power -= distance * consumptionBog;
-        return true;
-
-    }
-
-
-    public String getName() {
-        return name;
-    }/*
-    public void takeAModeOfTransport(TakeTransport takeTransport){
-       takeTransport.takeAModeOfTransport(takeTransport);
-    }*/
-
-    // человек. транспорт выбираю из классов.
+// человек. транспорт выбираю из классов.
     // вызов по контракту, когда описывали дни недели
     // если нет транспорта человек просто идет
     // траты сил на километр. 4 км час
