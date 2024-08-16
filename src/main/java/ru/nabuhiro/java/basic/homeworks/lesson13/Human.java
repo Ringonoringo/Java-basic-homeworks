@@ -1,66 +1,46 @@
 package ru.nabuhiro.java.basic.homeworks.lesson13;
 
-public class Human  implements Transport {
-     static String name;
+public class Human {
+    private String name;
     private Transport currentTransport;
     public static int power;
-    private int consumptionForest;
-    private int consumptionPlain;
-    private int consumptionBog;
-
 
     public Human(int power, String name) {
         this.name = name;
         this.power = power;
-        currentTransport = null;
-        this.consumptionForest = 3;
-        this.consumptionPlain = 5;
-        this.consumptionBog = 1;
     }
 
-    @Override
-    public int takeAModeOfTransport(Transport transport) {
-        power = transport.power(transport);
-        currentTransport = transport;
-       return transport.takeAModeOfTransport(transport);
-
-    }
-
-    @Override
-    public int toSetDown(Transport transport) {
-        return transport.toSetDown(transport);
-    }
-
-    @Override
-    public String getType(Transport transport) {
-        return transport.getType(transport);
-    }
-
-    @Override
-    public int power(Transport transport) {
-        return power;
-    }
-
-    @Override
-    public boolean takeATrip(int distance, Terrain terrain) {
-        switch (terrain) {
-            case BOG:
-               return currentTransport.takeATrip(distance,terrain);
-
-            case DENSEFOREST:
-                System.out.println("Машина не может проехать по густому лесу");
-                return false;
-            case PLAIN:
-                if (distance> power){
-                    System.out.println("У машины не хватит топлива для такой дистанции");
-                    return  false;
-                }
-                power -= distance;
-                System.out.println("Машина проехала по равнине. Остаток топлива: " + power);
-                return true;
-            default:
-                throw new IllegalArgumentException("Unsupported operation: " + terrain);
+    public String takeAModeOfTransport(Transport transport) {
+        if (currentTransport != transport && currentTransport != null) {
+            System.out.println(name + " уже взял транспортное средство " + currentTransport.getType(transport));
+        } else {
+            currentTransport = transport;
+            System.out.println(name + " взял " + currentTransport.getType(transport));
         }
+        return currentTransport.getType(transport);
+    }
+
+    public void toSetDown(Transport transport) {
+        if (currentTransport != transport) {
+            System.out.println("Человек уже взял транспортное средство " + currentTransport.getType(transport) + " и убирает его, чтобя взять новое транспортное средство");
+        }
+        currentTransport = null;
+    }
+
+    public void getType() {
+        if (!(currentTransport instanceof Car || currentTransport instanceof LandRover || currentTransport instanceof Horse || currentTransport instanceof Bicycle)) {
+            System.out.println("Человек без транспортного средства");
+        } else {
+            System.out.println("Человек сейчас взял транспортное средство " + currentTransport.getType(currentTransport));
+        }
+    }
+
+    public boolean takeATrip(int distance, Terrain terrain) {
+        if (currentTransport instanceof Car || currentTransport instanceof LandRover || currentTransport instanceof Horse || currentTransport instanceof Bicycle) {
+            System.out.println("Человек идет пешком по местности");
+            return true;
+        }
+        return currentTransport.takeATrip(distance, terrain);
     }
 
 
