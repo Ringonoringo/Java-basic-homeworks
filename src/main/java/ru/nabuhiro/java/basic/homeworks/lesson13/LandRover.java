@@ -3,16 +3,10 @@ package ru.nabuhiro.java.basic.homeworks.lesson13;
 public class LandRover implements Transport {
     private int fuel;
     private String name;
-    private int consumptionForest;
-    private int consumptionPlain;
-    private int consumptionBog;// 3 литра на километр
 
     public LandRover(int fuel) {
         this.fuel = fuel;
         this.name = "Вездеход";
-        this.consumptionForest = 4;
-        this.consumptionPlain = 3;
-        this.consumptionBog = 5;
     }
 
     public int takeAModeOfTransport(Transport transport) {
