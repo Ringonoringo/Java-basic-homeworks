@@ -2,34 +2,36 @@ package ru.nabuhiro.java.basic.homeworks.lesson14;
 
 public class Main {
     public static void main(String[] args) {
-
+        String[][] arrayNot4 = {{"e", "4", "2", "4"}, {"3", "6", "3"}, {"o", ",", "5", "5", "5", "5"}};
+        String[][] array = {{"1", "1", "1", "1"}, {"A", "1", "1", "1"}, {"1", "1", "1", "1"}, {"1", "1", "1", "1"}};
+        String[][] array1 = {{"1", "1", "1", "1"}, {"1", "1", "1", "1"}, {"1", "1", "1", "1"}, {"1", "1", "1", "1"}};
+        try {
+            sumElements(arrayNot4);
+            sumElements(array);
+            sumElements(array1);
+        } catch (AppArraySizeException | AppArrayDataException e) {
+            System.out.println("Перехватили исключение");
+            e.printStackTrace();
+        }
+        System.out.println("Завершение работы");
     }
 
-    //Реализуйте метод, аргументом которого является двумерный строковый массив размером 4х4.
     public static void sumElements(String[][] array) {
         int sum = 0;
         for (int i = 0; i < array.length; i++) {
-            //Если передан массив другого размера необходимо бросить исключение AppArraySizeException.
             if (array.length != 4 || array[i].length != 4) {
-                throw new AppArraySizeException("Длина массива не равна 4\n");
+                throw new AppArraySizeException("Массив не равен 4Х4");
             }
             for (int j = 0; j < array[i].length; j++) {
                 try {
-                    //Метод должен обойти все элементы массива, преобразовать в int и просуммировать.
                     Integer.parseInt(array[i][j]);
-                    //Если Java не сможет преобразовать входную строку (в строке число криво написано), то будет сгенерировано исключение NumberFormatException.
                 } catch (NumberFormatException e) {
-                    //Если в каком-то элементе массива преобразование не удалось (например, в ячейке лежит текст вместо числа),
-                    // должно быть брошено исключение AppArrayDataException с детализацией, в какой именно ячейке лежат неверные данные.
-                    throw new AppArrayDataException("Преобразование не удалось.\n" +
-                            "В ячейке [" + i + "],[" + j + "] лежит текст вместо числа");
+                    throw new AppArrayDataException("Преобразование не удалось." + " В ячейке [" + i + "],[" + j + "] лежит текст [" + array[i][j] + "] вместо числа");
                 }
                 sum += Integer.parseInt(array[i][j]);
             }
-        }//и просуммировать
+        }
         System.out.println("Сумма элементов массива: " + sum);
-
-
     }
 }
 /*Реализуйте метод, аргументом которого является двумерный строковый массив размером 4х4.
