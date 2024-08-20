@@ -1,10 +1,9 @@
 package ru.nabuhiro.java.basic.homeworks.lesson15;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
-public class Employee extends ArrayList {//Создайте класс Сотрудник с полями: имя, возраст;
+public class Employee {//Создайте класс Сотрудник с полями: имя, возраст;
     private String name;
     private int age;
 
@@ -47,10 +46,7 @@ public class Employee extends ArrayList {//Создайте класс Сотр�
         for (Employee employee : list) {
             sumAges += employee.age;
         }
-        if (sumAges / list.size() > valueAge) {
-            return true;
-        }
-        return false;
+        return sumAges / list.size() > valueAge;
     }
 
     //Реализуйте метод, принимающий в качестве аргумента список сотрудников, и возвращающий ссылку на самого молодого сотрудника*/
