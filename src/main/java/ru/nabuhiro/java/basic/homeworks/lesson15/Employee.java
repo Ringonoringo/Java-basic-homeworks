@@ -4,31 +4,63 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class Employee {
+public class Employee extends ArrayList {//Создайте класс Сотрудник с полями: имя, возраст;
     private String name;
     private int age;
-    public Employee(String name, int age){
+
+    public Employee(String name, int age) {
         this.name = name;
         this.age = age;
     }
-    public ArrayList listOfNames(ArrayList<Employee> list){
 
-        return (ArrayList<Employee>) list;
+    @Override
+    public String toString() {
+        return '[' + "Name: " + name + ',' + " Age: " + age + ']';
     }
-    public ArrayList listOfAge(ArrayList<Employee> list, int valueAge){
 
-             for (int i = 0; i < list.size(); i++) {
-                 if (list.get(i).equals(valueAge)){
+    //Реализуйте метод, принимающий в качестве аргумента список сотрудников, и возвращающий список их имен;
+    public static List<String> listOfNames(List<Employee> list) {
+        List<String> names = new ArrayList<>();
+        for (Employee employee : list) {
+            names.add(employee.name);
+        }
+        return names;
 
-                 }
-             }
-        return (ArrayList<Employee>) list;
+    }
+
+    //Реализуйте метод, принимающий в качестве аргумента список сотрудников и минимальный возраст,
+// и возвращающий список сотрудников, возраст которых больше либо равен указанному аргументу;
+    public static List listOfAge(List<Employee> list, int valueAge) {
+        List<String> age = new ArrayList<>();
+        for (Employee employee : list) {
+            if (employee.age >= valueAge) {
+                age.add(String.valueOf(employee));
+            }
+        }
+        return age;
+    }
+
+    //Реализуйте метод, принимающий в качестве аргумента список сотрудников и минимальный средний возраст,
+    //и проверяющий что средний возраст сотрудников превышает указанный аргумент;
+    public static boolean averageAge(List<Employee> list, int valueAge) {
+        int sumAges = 0;
+        for (Employee employee : list) {
+            sumAges += employee.age;
+        }
+        if (sumAges / list.size() > valueAge) {
+            return true;
+        }
+        return false;
+    }
+
+    //Реализуйте метод, принимающий в качестве аргумента список сотрудников, и возвращающий ссылку на самого молодого сотрудника*/
+    public static Employee theYoungest(List<Employee> list) {
+        Employee youngest = list.get(0);
+        for (Employee employee : list) {
+            if (youngest.age > employee.age) {
+                youngest = employee;
+            }
+        }
+        return youngest;
     }
 }
-/*5.Создайте класс Сотрудник с полями: имя, возраст;
-Реализуйте метод, принимающий в качестве аргумента список сотрудников, и возвращающий список их имен;
-Реализуйте метод, принимающий в качестве аргумента список сотрудников и минимальный возраст,
- и возвращающий список сотрудников, возраст которых больше либо равен указанному аргументу;
-Реализуйте метод, принимающий в качестве аргумента список сотрудников и минимальный средний возраст,
-и проверяющий что средний возраст сотрудников превышает указанный аргумент;
-Реализуйте метод, принимающий в качестве аргумента список сотрудников, и возвращающий ссылку на самого молодого сотрудника*/
