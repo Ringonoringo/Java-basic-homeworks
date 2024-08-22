@@ -2,16 +2,16 @@ package ru.nabuhiro.java.basic.homeworks.lesson16;
 
 public class Main {
     public static void main(String[] args) {
-PhoneBook phoneBook = new PhoneBook();
-phoneBook.add("Arinova Arina Arinovna", "89999999999");
-phoneBook.add("Alexandrova Alexandra Alexandrovna","88888888888");
-phoneBook.add("Verova Vera Verovna", "87777777777");
-phoneBook.add("Andreev Andrei Andreevich", "86666666666");
-phoneBook.add("Denisov Denis Denisovich", "85555555555");
-phoneBook.add("Nikolaev Nikolai Nikolaevich", "84444444444");
-phoneBook.add("Innova Inna Innovna", "83333333333");
-phoneBook.add("Ksenieva Ksenia Ksenevna", "82222222222");
-phoneBook.add("Kristinova Kristine Kristinovna", "81111111111");
+        PhoneBook phoneBook = new PhoneBook();
+        phoneBook.add("Verova Vera", "87777777777");
+        phoneBook.add("Nikolaev Nikolai", "84444444444");
+        phoneBook.add("Innova Inna", "83333333333");
+        phoneBook.add("Kristinova Kristine", "81111111111");
+        System.out.println(phoneBook.find("Verova Vera"));
+        phoneBook.add("Verova Vera", "88888888888");
+        System.out.println(phoneBook.find("Verova Vera"));
+        System.out.println(phoneBook.getContacts());
+        System.out.println(phoneBook.containsPhoneNumber("83333333333"));
     }
 }
 

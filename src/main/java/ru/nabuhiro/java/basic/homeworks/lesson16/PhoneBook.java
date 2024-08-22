@@ -16,20 +16,20 @@ public class PhoneBook {
         return phonebook;
     }
 
-    public void add(String surnameFirsPatronymic, String number) {
-        if (phonebook.containsKey(surnameFirsPatronymic)) {
-            System.out.println("Такое ФИО существует. Добавляем номер");
-            if (phonebook.get(surnameFirsPatronymic).contains(number)) {
-                System.out.println("Номер телефона совпадает с существующим");
+    public void add(String surnameFirstname, String number) {
+        if (phonebook.containsKey(surnameFirstname)) {
+            System.out.println(surnameFirstname + " уже есть. Добавляем номер");
+            if (phonebook.get(surnameFirstname).contains(number)) {
+                System.out.println("Полное совпадение. Запись уже есть");
             } else {
-                System.out.println("Добавили второй номер к " + surnameFirsPatronymic);
-                phonebook.get(surnameFirsPatronymic).add(number);
+                System.out.println("Добавили второй номер " + surnameFirstname);
+                phonebook.get(surnameFirstname).add(number);
             }
         } else {
-            System.out.println("В телефонную книгу добавлена запись " +surnameFirsPatronymic + " " + number);
+            System.out.println("В телефонную книгу добавлена запись " + surnameFirstname + " " + number);
             ArrayList<String> list = new ArrayList<>();
             list.add(number);
-            phonebook.put(surnameFirsPatronymic, list);
+            phonebook.put(surnameFirstname, list);
         }
     }
 
@@ -38,13 +38,11 @@ public class PhoneBook {
     }
 
     public boolean containsPhoneNumber(String number) {
-        for (String surnameFirsPatronymic : phonebook.keySet()) {
-            if (phonebook.get(surnameFirsPatronymic).contains(number)) {
-                System.out.println("Номер " + number + " найден в телефонной книге");
+        for (String surnameFirstname : phonebook.keySet()) {
+            if (phonebook.get(surnameFirstname).contains(number)) {
                 return true;
             }
         }
-        System.out.println("Номер " + number + " не найден в телефонной книге");
         return false;
     }
 }
