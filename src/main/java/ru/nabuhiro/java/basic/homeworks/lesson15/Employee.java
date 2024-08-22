@@ -18,7 +18,7 @@ public class Employee {//Создайте класс Сотрудник с по�
     }
 
     //Реализуйте метод, принимающий в качестве аргумента список сотрудников, и возвращающий список их имен;
-    public static List<String> listOfNames(List<Employee> list) {
+    public List<String> listOfNames(List<Employee> list) {
         List<String> names = new ArrayList<>();
         for (Employee employee : list) {
             names.add(employee.name);
@@ -29,19 +29,19 @@ public class Employee {//Создайте класс Сотрудник с по�
 
     //Реализуйте метод, принимающий в качестве аргумента список сотрудников и минимальный возраст,
 // и возвращающий список сотрудников, возраст которых больше либо равен указанному аргументу;
-    public static List listOfAge(List<Employee> list, int valueAge) {
-        List<String> age = new ArrayList<>();
+    public List<Employee> sortEmployeeOfAge(List<Employee> list, int valueAge) {
+        List<Employee> sortOfAge = new ArrayList<>();
         for (Employee employee : list) {
             if (employee.age >= valueAge) {
-                age.add(String.valueOf(employee));
+                sortOfAge.add(employee);
             }
         }
-        return age;
+        return sortOfAge;
     }
 
     //Реализуйте метод, принимающий в качестве аргумента список сотрудников и минимальный средний возраст,
     //и проверяющий что средний возраст сотрудников превышает указанный аргумент;
-    public static boolean averageAge(List<Employee> list, int valueAge) {
+    public boolean averageAge(List<Employee> list, int valueAge) {
         int sumAges = 0;
         for (Employee employee : list) {
             sumAges += employee.age;
@@ -50,7 +50,7 @@ public class Employee {//Создайте класс Сотрудник с по�
     }
 
     //Реализуйте метод, принимающий в качестве аргумента список сотрудников, и возвращающий ссылку на самого молодого сотрудника*/
-    public static Employee theYoungest(List<Employee> list) {
+    public Employee theYoungest(List<Employee> list) {
         Employee youngest = list.get(0);
         for (Employee employee : list) {
             if (youngest.age > employee.age) {

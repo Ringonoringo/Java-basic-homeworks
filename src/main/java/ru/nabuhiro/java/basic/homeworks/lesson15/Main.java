@@ -18,22 +18,19 @@ public class Main {
         System.out.println(sumIsGreaterThan((ArrayList<Integer>) list, 5));
         System.out.println(fillingWithNumber((ArrayList<Integer>) list, 5));
         System.out.println(increaseByNumber((ArrayList<Integer>) list, 5));
-        Employee employee1 = new Employee("Anna", 20);
-        Employee employee2 = new Employee("Inna", 25);
-        Employee employee3 = new Employee("Kristine", 30);
-        Employee employee4 = new Employee("Vera", 35);
-        Employee employee5 = new Employee("Julia", 40);
 
         List<Employee> employees = new ArrayList<>();
-        employees.add(employee1);
-        employees.add(employee2);
-        employees.add(employee3);
-        employees.add(employee4);
-        employees.add(employee5);
-        System.out.println(listOfNames(employees));
-        System.out.println(listOfAge(employees, 30));
-        System.out.println(averageAge(employees, 30));
-        System.out.println(theYoungest(employees));
+        employees.add(new Employee("Anna", 20));
+        employees.add(new Employee("Inna", 25));
+        employees.add(new Employee("Kristine", 30));
+        employees.add(new Employee("Vera", 35));
+        employees.add(new Employee("Julia", 40));
+        for (Employee employee : employees) {
+            System.out.println(employee.listOfNames(employees));
+            System.out.println(employee.sortEmployeeOfAge(employees, 30));
+            System.out.println(employee.averageAge(employees, 30));
+            System.out.println(employee.theYoungest(employees));
+        }
 
     }
 
@@ -45,7 +42,6 @@ public class Main {
             list.add(min);
             min++;
         }
-        System.out.println(list);
         return list;
     }
 
