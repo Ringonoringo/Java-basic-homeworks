@@ -25,12 +25,12 @@ public class Main {
         employees.add(new Employee("Kristine", 30));
         employees.add(new Employee("Vera", 35));
         employees.add(new Employee("Julia", 40));
-        for (Employee employee : employees) {
-            System.out.println(employee.listOfNames(employees));
-            System.out.println(employee.sortEmployeeOfAge(employees, 30));
-            System.out.println(employee.averageAge(employees, 30));
-            System.out.println(employee.theYoungest(employees));
-        }
+
+            System.out.println(listOfNames(employees));
+            System.out.println(sortEmployeeOfAge(employees, 30));
+            System.out.println(averageAge(employees, 30));
+            System.out.println(theYoungest(employees));
+
 
     }
 
@@ -73,6 +73,48 @@ public class Main {
             list.set(i, (list.get(i) + number));
         }
         return list;
+    }
+
+    //Реализуйте метод, принимающий в качестве аргумента список сотрудников, и возвращающий список их имен;
+    public static List<String> listOfNames(List<Employee> list) {
+        List<String> names = new ArrayList<>();
+        for (Employee employee : list) {
+            names.add(employee.getName());
+        }
+        return names;
+    }
+
+    //Реализуйте метод, принимающий в качестве аргумента список сотрудников и минимальный возраст,
+// и возвращающий список сотрудников, возраст которых больше либо равен указанному аргументу;
+    public static List<Employee> sortEmployeeOfAge(List<Employee> list, int valueAge) {
+        List<Employee> sortOfAge = new ArrayList<>();
+        for (Employee employee : list) {
+            if (employee.getAge() >= valueAge) {
+                sortOfAge.add(employee);
+            }
+        }
+        return sortOfAge;
+    }
+
+    //Реализуйте метод, принимающий в качестве аргумента список сотрудников и минимальный средний возраст,
+    //и проверяющий что средний возраст сотрудников превышает указанный аргумент;
+    public static boolean averageAge(List<Employee> list, int valueAge) {
+        int sumAges = 0;
+        for (Employee employee : list) {
+            sumAges += employee.getAge();
+        }
+        return sumAges / list.size() > valueAge;
+    }
+
+    //Реализуйте метод, принимающий в качестве аргумента список сотрудников, и возвращающий ссылку на самого молодого сотрудника*/
+    public static Employee theYoungest(List<Employee> list) {
+        Employee youngest = list.get(0);
+        for (Employee employee : list) {
+            if (youngest.getAge() > employee.getAge()) {
+                youngest = employee;
+            }
+        }
+        return youngest;
     }
 }
 

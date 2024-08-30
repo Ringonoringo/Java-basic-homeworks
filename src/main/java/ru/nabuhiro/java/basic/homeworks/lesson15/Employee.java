@@ -17,46 +17,11 @@ public class Employee {//Создайте класс Сотрудник с по�
         return '[' + "Name: " + name + ',' + " Age: " + age + ']';
     }
 
-    //Реализуйте метод, принимающий в качестве аргумента список сотрудников, и возвращающий список их имен;
-    public List<String> listOfNames(List<Employee> list) {
-        List<String> names = new ArrayList<>();
-        for (Employee employee : list) {
-            names.add(employee.name);
-        }
-        return names;
-
+    public int getAge() {
+        return age;
     }
 
-    //Реализуйте метод, принимающий в качестве аргумента список сотрудников и минимальный возраст,
-// и возвращающий список сотрудников, возраст которых больше либо равен указанному аргументу;
-    public List<Employee> sortEmployeeOfAge(List<Employee> list, int valueAge) {
-        List<Employee> sortOfAge = new ArrayList<>();
-        for (Employee employee : list) {
-            if (employee.age >= valueAge) {
-                sortOfAge.add(employee);
-            }
-        }
-        return sortOfAge;
-    }
-
-    //Реализуйте метод, принимающий в качестве аргумента список сотрудников и минимальный средний возраст,
-    //и проверяющий что средний возраст сотрудников превышает указанный аргумент;
-    public boolean averageAge(List<Employee> list, int valueAge) {
-        int sumAges = 0;
-        for (Employee employee : list) {
-            sumAges += employee.age;
-        }
-        return sumAges / list.size() > valueAge;
-    }
-
-    //Реализуйте метод, принимающий в качестве аргумента список сотрудников, и возвращающий ссылку на самого молодого сотрудника*/
-    public Employee theYoungest(List<Employee> list) {
-        Employee youngest = list.get(0);
-        for (Employee employee : list) {
-            if (youngest.age > employee.age) {
-                youngest = employee;
-            }
-        }
-        return youngest;
+    public String getName() {
+        return name;
     }
 }
