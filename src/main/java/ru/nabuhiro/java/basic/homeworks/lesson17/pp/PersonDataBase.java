@@ -10,17 +10,17 @@ public class PersonDataBase {
         personMap = new HashMap<>();
     }
 
-   public Person findById(Long id) {
+    public Person findById(Long id) {
         return personMap.get(id);
     }
 
-   public void add(Person person) {
+    public void add(Person person) {
         personMap.put(person.getId(), person);
     }
 
-     public boolean isManager(Person person) {
-         if (person == null) return false;
-         Position position = person.getPosition();
+    public boolean isManager(Person person) {
+        if (person == null) return false;
+        Position position = person.getPosition();
         switch (position) {
             case MANAGER:
                 return true;
@@ -45,15 +45,15 @@ public class PersonDataBase {
             case JUNIOR_DEVELOPER:
                 break;
             default:
-                 throw new IllegalArgumentException("Unsupported operation: " + position);
-         }
-         return false;
-     }
+                throw new IllegalArgumentException("Unsupported operation: " + position);
+        }
+        return false;
+    }
 
-   public boolean isEmployee(Long id) {
-       Person person = findById(id);
-       if (person == null) return false;
-    return !isManager(person);
+    public boolean isEmployee(Long id) {
+        Person person = findById(id);
+        if (person == null) return false;
+        return !isManager(person);
     }
 }
 /*
