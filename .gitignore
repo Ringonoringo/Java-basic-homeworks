@@ -37,3 +37,5 @@ build/
 
 ### Mac OS ###
 .DS_Store
+/src/main/java/ru/nabuhiro/java/basic/homeworks/lesson17/tree/
+/src/main/java/ru/nabuhiro/java/basic/homeworks/lesson17/test/
