@@ -10,7 +10,7 @@ public class FileWork {
         workingWithFile();
     }
 
-    public static void showTxtFile() {
+    public static void showTxtFile() throws IOException {
         File dir = new File("./");
         FilenameFilter filter = new FilenameFilter() {
             @Override
@@ -24,7 +24,7 @@ public class FileWork {
         }
     }
 
-    public static void workingWithFile() {
+    public static void workingWithFile() throws IOException{
         System.out.println("С каким файлом вы хотите работать:");
         Scanner scanner = new Scanner(System.in);
         String fileName = scanner.nextLine();
