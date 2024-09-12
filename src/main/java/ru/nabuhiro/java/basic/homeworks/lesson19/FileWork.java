@@ -10,17 +10,21 @@ public class FileWork {
         workingWithFile();
     }
 
-    public static void showTxtFile() throws IOException {
-        File dir = new File("./");
-        FilenameFilter filter = new FilenameFilter() {
-            @Override
-            public boolean accept(File dir, String name) {
-                return name.endsWith(".txt");
+    public static void showTxtFile() {
+        try {
+            File dir = new File("./");
+            FilenameFilter filter = new FilenameFilter() {
+                @Override
+                public boolean accept(File dir, String name) {
+                    return name.endsWith(".txt");
+                }
+            };
+            File[] files = dir.listFiles(filter);
+            for (File file : files) {
+                System.out.println("Список txt файлов: " + file.getName());
             }
-        };
-        File[] files = dir.listFiles(filter);
-        for (File file : files) {
-            System.out.println("Список txt файлов: " + file.getName());
+        }catch (NullPointerException e) {
+            e.printStackTrace();
         }
     }
 
