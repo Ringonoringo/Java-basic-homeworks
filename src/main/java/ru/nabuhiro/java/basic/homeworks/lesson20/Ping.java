@@ -1,6 +1,10 @@
 package ru.nabuhiro.java.basic.homeworks.lesson20;
 
-import java.io.*;
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
 import java.net.Socket;
 
 public class Ping implements AutoCloseable{
@@ -18,11 +22,9 @@ public class Ping implements AutoCloseable{
     }
 
     public String read() throws IOException {
-
         String result = inputStream.readUTF();
         return result;
     }
-
 
     @Override
     public void close() throws Exception {

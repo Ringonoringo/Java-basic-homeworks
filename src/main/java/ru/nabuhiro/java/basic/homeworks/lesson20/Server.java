@@ -3,6 +3,9 @@ package ru.nabuhiro.java.basic.homeworks.lesson20;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.io.BufferedInputStream;
+import java.io.DataInputStream;
+import java.io.IOException;
 
 public class Server {
     public static void main(String[] args) throws IOException {
@@ -10,56 +13,58 @@ public class Server {
         while (true) {
             Socket clientAccept = serverSocket.accept();
             System.out.println("Client connected!");
-            writeMessage(clientAccept, "Доступные операции: +,-,*,/");
-            String userInput = readRequest(clientAccept);
-            String result = makeOperation(userInput);
-            writeMessage(clientAccept, result);
+            write(clientAccept, "Доступные операции: +,-,*,/\n Введите числа и операцию");
+            String userInput = read(clientAccept);
+            String result = calculate(userInput);
+            write(clientAccept, result);
         }
     }
 
-    private static String readRequest(Socket socket) throws IOException {
+    private static String read(Socket socket) throws IOException {
         DataInputStream input = new DataInputStream(new BufferedInputStream(socket.getInputStream()));
         String str = input.readUTF();
-        //System.out.println("Пользователь ввел:" + str);
+        System.out.println("User input:" +str);
         return str;
     }
 
-    private static void writeMessage(Socket socket, String str) throws IOException {
+    private static void write(Socket socket, String str) throws IOException {
         DataOutputStream output = new DataOutputStream(new BufferedOutputStream(socket.getOutputStream()));
         output.writeUTF(str);
         output.flush();
     }
 
-    private static String makeOperation (String str){
+    private static String calculate(String str){
         String[] splitStr = str.split(" ");
         try {
-            Double firstNumber = Double.parseDouble(splitStr[0]);
-            Double secondNumber = Double.parseDouble(splitStr[1]);
+            int number1 = Integer.parseInt(splitStr[0]);
+            int number2 = Integer.parseInt(splitStr[1]);
 
             String operation = splitStr[2];
-            //System.out.println("Выражение: " + firstNumber + " " + operation + " " + secondNumber);
             double result = 0;
 
             switch (operation){
                 case "*":
-                    result = firstNumber * secondNumber;
+                    result = number1 * number2;
                     break;
                 case "+":
-                    result = firstNumber + secondNumber;
+                    result = number1 + number2;
                     break;
                 case "-":
-                    result = firstNumber - secondNumber;
+                    result = number1 - number2;
                     break;
                 case "/":
-                    result = firstNumber / secondNumber;
+                    if (number2 == 0){
+                        throw new ArithmeticException("you can't divide by zero");
+                    }
+                    result = (double) number1 / number2;
                     break;
                 default:
-                    return "Такая операция не обрабатывается данным сервером";
+                    return "Incorrect operation";
             }
 
-            return firstNumber + " " + operation + " " + secondNumber + " = " + result;
+            return number1 + " " + operation + " " + number2 + " = " + result;
         } catch (NumberFormatException e){
-            return "Неверные данные";
+            return "Input data incorrect";
         }
     }
 
