@@ -1,7 +1,7 @@
 package ru.nabuhiro.java.basic.homeworks.lesson29;
 
 public class ArraysMethods {
-    public int[] ArrayAfterOne(int[] array) {
+    public int[] arrayAfterOne(int[] array) {
         if (array != null && array.length > 0) {
             for (int i = array.length - 1; i >= 0; i--) {
                 if (array[i] == 1) {
@@ -19,9 +19,9 @@ public class ArraysMethods {
             for (int i : array) {
                 if (i == 1) {
                     containsOne = true;
-                }else if (i == 2) {
+                } else if (i == 2) {
                     containsTwo = true;
-                }else return false;
+                } else return false;
             }
         }
         return containsOne && containsTwo;

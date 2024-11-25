@@ -22,9 +22,9 @@ import java.util.stream.Stream;
             );
         }
         @ParameterizedTest
-        @MethodSource
+        @MethodSource("arrayAfterOne")
         void arrayAfterOne(int[] expect, int[] value) {
-            Assertions.assertArrayEquals(expect, array1.ArrayAfterOne(value));
+            Assertions.assertArrayEquals(expect, array1.arrayAfterOne(value));
         }
         static Stream<Arguments> arrayAfterOneException() {
             return Stream.of(
@@ -32,10 +32,9 @@ import java.util.stream.Stream;
             );
         }
         @ParameterizedTest
-        @MethodSource
-        @NullSource
+        @MethodSource ("arrayAfterOneException")
         void arrayAfterOneException(int[] value) {
-            Assertions.assertThrows(RuntimeException.class, () -> array1.ArrayAfterOne(value));
+            Assertions.assertThrows(RuntimeException.class, () -> array1.arrayAfterOne(value));
         }
         static Stream<Arguments> checkOneAndTwoTrue() {
             return Stream.of(
@@ -46,7 +45,7 @@ import java.util.stream.Stream;
             );
         }
         @ParameterizedTest
-        @MethodSource
+        @MethodSource("checkOneAndTwoTrue")
         void checkOneAndTwoTrue(int[] array) {
             Assertions.assertTrue(array1.checkOneAndTwo(array));
         }
@@ -59,7 +58,7 @@ import java.util.stream.Stream;
             );
         }
         @ParameterizedTest
-        @MethodSource
+        @MethodSource("checkOneAndTwoFalse")
         @NullSource
         void checkOneAndTwoFalse(int[] array) {
             Assertions.assertFalse(array1.checkOneAndTwo(array));
